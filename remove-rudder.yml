@@ -1,0 +1,21 @@
+---
+- name: remove rudder
+  hosts: rudder
+  remote_user: root
+  tasks:
+  - name: remove binary
+    apt:
+     name: rudder-agent
+     state: absent
+  - name: remove config dir
+    file:
+     path: /var/rudder/
+     state: absent
+  - name: remove 2nd config dir
+    file:
+     path: /opt/rudder/
+     state: absent
+  - name: remove sources.list
+    file:
+     path: /etc/apt/sources.list.d/rudder.list
+     state: absent
