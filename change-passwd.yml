@@ -2,7 +2,6 @@
 - name: change password
   hosts: test
   remote_user: root
-  ignore_errors: yes
   vars_prompt:
   - name: "Username"
     prompt: "Enter username for password change"
@@ -11,7 +10,6 @@
   - name: Check if username exists
     shell: id -u "{{Username}}"
     register: user_exists
-    ignore_errors: true
 
   - name: change password
     user:
