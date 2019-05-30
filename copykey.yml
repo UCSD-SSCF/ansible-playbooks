@@ -1,0 +1,10 @@
+---
+- hosts: new
+  become: true
+  become_user: "root"
+  tasks:
+  - name: setup public ssh key
+    authorized_key:
+      user: root
+      state: present
+      key: "{{ lookup('file', '/root/.ssh/id_rsa.pub') }}"
