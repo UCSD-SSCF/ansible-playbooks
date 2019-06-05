@@ -19,3 +19,7 @@
     file:
      path: /etc/apt/sources.list.d/rudder.list
      state: absent
+  - name: remove profile script
+    file:
+     path: /etc/profile.d/rudder-agent.sh
+     state: absent
